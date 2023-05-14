@@ -5,6 +5,10 @@ import 'package:yuuna/language.dart';
 import 'package:yuuna/models.dart';
 import 'package:yuuna/utils.dart';
 
+import 'package:yuuna/src/creator/fields/frequency_field.dart';
+
+import 'package:yuuna/src/utils/converters/setting_converter.dart';
+
 part 'anki_mapping.g.dart';
 
 /// A user-generated mapping to allow customisation of the fields exported from
@@ -275,6 +279,17 @@ class AnkiMapping {
   String get enhancementsIsar => EnhancementsConverter.toIsar(enhancements!);
   set enhancementsIsar(String object) =>
       enhancements = EnhancementsConverter.fromIsar(object);
+
+  // TODO: use this for something
+
+  /// Used to keep track of settings for exports (fields / actions / enhancements).
+  @ignore
+  late Map<String, String>? exportSettings;
+
+  /// Serializes [exportSettings].
+  String get exportSettingsIsar => SettingsConverter.toIsar(exportSettings!);
+  set exportSettingsIsar(String object) =>
+      exportSettings = SettingsConverter.fromIsar(object);
 
   /// Reserved index for the auto mode field in the map of enhancement names
   /// for a field.

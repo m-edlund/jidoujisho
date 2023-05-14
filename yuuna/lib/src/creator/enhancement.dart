@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yuuna/creator.dart';
 import 'package:yuuna/models.dart';
 
+import 'package:yuuna/src/creator/creator_entity_mixin.dart';
+
 /// List of causes that may be of interest when executing an enhancement and
 /// may change the context of how the enhancement should be executed.
 enum EnhancementTriggerCause {
@@ -22,7 +24,7 @@ enum EnhancementTriggerCause {
 /// initialisation step, and can be assigned to a field enhancement slot.
 /// In the creator, the user can then tap on the icon representing the
 /// enhancement to execute its functionality.
-abstract class Enhancement {
+abstract class Enhancement with CreatorEntity {
   /// Initialise this enhancement with the predetermined and hardset values.
   Enhancement({
     required this.uniqueKey,

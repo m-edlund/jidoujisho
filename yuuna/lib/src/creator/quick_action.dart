@@ -3,13 +3,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yuuna/dictionary.dart';
 import 'package:yuuna/models.dart';
 
+import 'package:yuuna/src/creator/creator_entity_mixin.dart';
+
 /// An entity that executes an action when selected on the upper-right of a
 /// dictionary entry widget. An action is initialised at runtime in the
 /// initialisation step, and can be assigned to a quick action slot.
 /// When dictionary search results are displayed, the user can then tap on the
 /// icon representing the action to execute its functionality for a certain
 /// dictionary entry.
-abstract class QuickAction {
+abstract class QuickAction with CreatorEntity {
   /// Initialise this action with the predetermined and hardset values.
   QuickAction({
     required this.uniqueKey,

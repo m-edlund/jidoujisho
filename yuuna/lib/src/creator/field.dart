@@ -3,11 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yuuna/dictionary.dart';
 import 'package:yuuna/models.dart';
 
+import 'package:yuuna/src/creator/creator_entity_mixin.dart';
+
 /// An entity that represents a broad characteristic of an item being
 /// exported that is distinguishable enough to deserve its own core
 /// functionality and family of user extensions. For example, a field
 /// could handle exclusively images, or dictionary definitions.
-abstract class Field {
+abstract class Field with CreatorEntity {
   /// Initialise this field with the predetermined and hardset values.
   Field({
     required this.uniqueKey,
