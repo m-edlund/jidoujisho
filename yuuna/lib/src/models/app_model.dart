@@ -38,7 +38,6 @@ import 'package:yuuna/language.dart';
 import 'package:yuuna/media.dart';
 import 'package:yuuna/models.dart';
 import 'package:yuuna/pages.dart';
-import 'package:yuuna/src/creator/fields/frequency_field.dart';
 import 'package:yuuna/utils.dart';
 
 /// Schemas used in Isar database.
@@ -2458,6 +2457,27 @@ class AppModel with ChangeNotifier {
         pageBuilder: (context, animation1, animation2) => CreatorPage(
           decks: decks,
           editEnhancements: true,
+          editFields: false,
+          killOnPop: false,
+          subtitles: null,
+        ),
+        transitionDuration: Duration.zero,
+        reverseTransitionDuration: Duration.zero,
+      ),
+    );
+  }
+
+  /// A helper function for opening the settings of fields, quick actions and
+  /// enhancements anywhere in the application.
+  Future<void> openCreatorExportProfileSettings() async {
+    List<String> decks = await getDecks();
+
+    await Navigator.push(
+      _navigatorKey.currentContext!,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => CreatorPage(
+          decks: decks,
+          editEnhancements: false,
           editFields: false,
           killOnPop: false,
           subtitles: null,

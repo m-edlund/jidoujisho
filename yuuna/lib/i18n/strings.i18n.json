@@ -56,10 +56,8 @@
     "dialog_done": "DONE",
     "reset": "Reset",
     "dialog_launch_ankidroid": "LAUNCH ANKIDROID",
-    "media_item_delete_confirmation":
-        "This will clear this item from history. Are you sure you want to do this?",
-    "dictionaries_delete_confirmation":
-        "Deleting a dictionary will also clear all dictionary results from history. Are you sure you want to do this?",
+    "media_item_delete_confirmation": "This will clear this item from history. Are you sure you want to do this?",
+    "dictionaries_delete_confirmation": "Deleting a dictionary will also clear all dictionary results from history. Are you sure you want to do this?",
     "mappings_delete_confirmation": "This profile will be deleted. Are you sure you want to do this?",
     "catalog_delete_confirmation": "This catalog will be deleted. Are you sure you want to do this?",
     "dictionaries_deleting_data": "Deleting dictionary data...",
@@ -71,6 +69,7 @@
     "options_dictionaries": "Manage dictionaries",
     "options_profiles": "Export profiles",
     "options_enhancements": "User enhancements",
+    "options_export": "Export profile settings",
     "options_language": "Language settings",
     "options_github": "View repository on GitHub",
     "options_attribution": "Licenses and attribution",
@@ -109,8 +108,7 @@
     "dictionary_tag": "Imported from $name",
     "legalese": "A full-featured immersion language learning suite for mobile.\n\nOriginally built for the Japanese language learning community by Leo Rafael Orpilla. Logo by suzy and Aaron Marbella.\n\njidoujisho is free and open source software. See the project repository for a comprehensive list of other licenses and attribution notices. Enjoying the application? Help out by providing feedback, making a donation, reporting issues or contributing improvements on GitHub.",
     "same_name_dictionary_found": "Dictionary with same name found.",
-    "import_file_extension_invalid":
-        "This format expects files with the following extensions: $extensions",
+    "import_file_extension_invalid": "This format expects files with the following extensions: $extensions",
     "field_label_empty": "Empty",
     "model_to_map": "Card type to use for new profile",
     "mapping_name": "Profile name",
@@ -118,31 +116,22 @@
     "error_profile_name": "Invalid profile name",
     "error_profile_name_content": "A profile with this name already exists or is not valid and cannot be saved.",
     "error_standard_profile_name": "Invalid profile name",
-    "error_standard_profile_name_content":
-        "Cannot rename the standard profile.",
+    "error_standard_profile_name_content": "Cannot rename the standard profile.",
     "error_ankidroid_api": "AnkiDroid error",
-    "error_ankidroid_api_content":
-        "There was an issue communicating with AnkiDroid.\n\nEnsure that the AnkiDroid background service is active and all relevant app permissions are granted in order to continue.",
+    "error_ankidroid_api_content": "There was an issue communicating with AnkiDroid.\n\nEnsure that the AnkiDroid background service is active and all relevant app permissions are granted in order to continue.",
     "info_standard_model": "Standard card type added",
-    "info_standard_model_content":
-        "『jidoujisho Kinomoto』 has been added to AnkiDroid as a new card type.\n\nSetups making use of a different card type or field order may be used by adding a new export profile.",
+    "info_standard_model_content": "『jidoujisho Kinomoto』 has been added to AnkiDroid as a new card type.\n\nSetups making use of a different card type or field order may be used by adding a new export profile.",
     "error_model_missing": "Missing card type",
-    "error_model_missing_content":
-        "The corresponding card type of the currently selected profile is missing.\n\nThe profile will be deleted, and the standard profile has now been selected in its place.",
+    "error_model_missing_content": "The corresponding card type of the currently selected profile is missing.\n\nThe profile will be deleted, and the standard profile has now been selected in its place.",
     "error_model_changed": "Card type changed",
-    "error_model_changed_content":
-        "The number of fields of the card type corresponding to the selected profile has changed.\n\nThe fields of the currently selected profile have been reset and will require reconfiguration.",
+    "error_model_changed_content": "The number of fields of the card type corresponding to the selected profile has changed.\n\nThe fields of the currently selected profile have been reset and will require reconfiguration.",
     "creator_exporting_as": "Creating card with profile",
     "creator_exporting_as_fields_editing": "Editing fields for profile",
-    "creator_exporting_as_enhancements_editing":
-        "Editing enhancements for profile",
+    "creator_exporting_as_enhancements_editing": "Editing enhancements for profile",
     "creator_export_card": "Create Card",
-    "info_enhancements":
-        "Enhancements enable the automation of field editing prior to card creation. Pick a slot on the right of a field to allow use of an enhancement. Up to five right slots may be utilised for each field. The enhancement in the left slot of a field will be automatically applied in instant card creation or upon launch of the Card Creator.",
-    "info_actions":
-        "Quick actions allow for instant card creation and other automations to be used on dictionary search results. Actions can be assigned via the slots below. Up to six slots may be utilised.",
-    "no_more_available_enhancements":
-        "No more available enhancements for this field",
+    "info_enhancements": "Enhancements enable the automation of field editing prior to card creation. Pick a slot on the right of a field to allow use of an enhancement. Up to five right slots may be utilised for each field. The enhancement in the left slot of a field will be automatically applied in instant card creation or upon launch of the Card Creator.",
+    "info_actions": "Quick actions allow for instant card creation and other automations to be used on dictionary search results. Actions can be assigned via the slots below. Up to six slots may be utilised.",
+    "no_more_available_enhancements": "No more available enhancements for this field",
     "no_more_available_quick_actions": "No more available quick actions",
     "assign_auto_enhancement": "Assign Auto Enhancement",
     "assign_manual_enhancement": "Assign Manual Enhancement",
@@ -168,11 +157,9 @@
     "search_label_middle": "out of ",
     "search_label_after": "search results found for",
     "clear_dictionary_title": "Clear Dictionary Result History",
-    "clear_dictionary_description":
-        "This will clear all dictionary results from history. Are you sure?",
+    "clear_dictionary_description": "This will clear all dictionary results from history. Are you sure?",
     "clear_search_title": "Clear Search History",
-    "clear_search_description":
-        "This will clear all search terms for this history. Are you sure?",
+    "clear_search_description": "This will clear all search terms for this history. Are you sure?",
     "clear_creator_title": "Clear Creator",
     "clear_creator_description": "This will clear all fields. Are you sure?",
     "copied_to_clipboard": "Copied to clipboard.",
@@ -184,8 +171,7 @@
     "add_field_hint": "Assign a field to this row",
     "no_more_available_fields": "No more available fields",
     "hidden_fields": "Additional fields",
-    "field_fallback_used":
-        "The $field field used $secondField as its fallback search term.",
+    "field_fallback_used": "The $field field used $secondField as its fallback search term.",
     "no_text_to_search": "No text to search.",
     "image_search_label_before": "Selecting image ",
     "image_search_label_middle": "out of ",
@@ -198,17 +184,13 @@
     "audio_unavailable": "No audio could be found.",
     "no_audio_enhancements": "No audio enhancements are assigned.",
     "card_exported": "Card exported to 『$deck』.",
-    "info_incognito_on":
-        "Incognito mode on. Dictionary, media and search history will not be tracked.",
-    "info_incognito_off":
-        "Incognito mode off. Dictionary, media and search history will be tracked.",
+    "info_incognito_on": "Incognito mode on. Dictionary, media and search history will not be tracked.",
+    "info_incognito_off": "Incognito mode off. Dictionary, media and search history will be tracked.",
     "exit_media_title": "Exit Media",
-    "exit_media_description":
-        "This will return you to the main menu. Are you sure?",
+    "exit_media_description": "This will return you to the main menu. Are you sure?",
     "unimplemented_source": "Unimplemented source",
     "clear_browser_title": "Clear Browser Data",
-    "clear_browser_description":
-        "This will clear all browsing data used in media sources that use web content. Are you sure?",
+    "clear_browser_description": "This will clear all browsing data used in media sources that use web content. Are you sure?",
     "ttu_no_books_added": "No books added to ッツ Ebook Reader",
     "local_media_directory_empty": "Directory has no folders or video",
     "pick_video_file": "Pick Video File",
@@ -291,11 +273,9 @@
     "text_segmentation": "Text Segmentation",
     "connect_disconnect": "Connect/Disconnect",
     "clear_text_title": "Clear Text",
-    "clear_text_description":
-        "This will clear all received text. Are you sure?",
+    "clear_text_description": "This will clear all received text. Are you sure?",
     "close_connection_title": "Close Connection",
-    "close_connection_description":
-        "This will end the WebSocket connection and clear all received text. Are you sure?",
+    "close_connection_description": "This will end the WebSocket connection and clear all received text. Are you sure?",
     "use_slow_import": "Slow import (use if failing)",
     "settings": "Settings",
     "manager": "Manager",
@@ -313,14 +293,10 @@
     "auto_search_debounce_delay": "Auto search debounce delay",
     "dictionary_font_size": "Dictionary font size",
     "close_on_export": "Close on Export",
-    "close_on_export_on":
-        "The Card Creator will now automatically close upon card export.",
-    "close_on_export_off":
-        "The Card Creator will no longer close upon card export.",
-    "export_profile_empty":
-        "Your export profile has no set fields and requires configuration.",
-    "error_export_media_ankidroid":
-        "There was an error in exporting media to AnkiDroid.",
+    "close_on_export_on": "The Card Creator will now automatically close upon card export.",
+    "close_on_export_off": "The Card Creator will no longer close upon card export.",
+    "export_profile_empty": "Your export profile has no set fields and requires configuration.",
+    "error_export_media_ankidroid": "There was an error in exporting media to AnkiDroid.",
     "error_add_note": "There was an error in adding a note to AnkiDroid.",
     "first_time_setup": "First-Time Setup",
     "first_time_setup_description": "Welcome to jidoujisho! Set your target language and a default profile will be tailored for you. You can change this later at anytime.",
@@ -341,7 +317,6 @@
     "file_downloaded": "File downloaded: $name",
     "cfhange_sort_order": "Change Sort Order",
     "login": "Login",
-  
     "send": "Send",
     "no_messages": "Start a chat",
     "enter_message": "Enter message...",
@@ -390,19 +365,17 @@
     "display_settings": "Display Settings",
     "cloze": "Cloze",
     "info_standard_update": "New standard profile card type",
-    "info_standard_update_content":
-        "The standard profile now uses the『jidoujisho Kinomoto』 card type.\n\nYour legacy standard profile remains available for backwards compatibility.",
+    "info_standard_update_content": "The standard profile now uses the『jidoujisho Kinomoto』 card type.\n\nYour legacy standard profile remains available for backwards compatibility.",
     "retrying_in": {
         "seconds": {
-          "one": "Retrying in $n second...",
-          "other": "Retrying in $n seconds..."
+            "one": "Retrying in $n second...",
+            "other": "Retrying in $n seconds..."
         }
-      },
-    
+    },
     "view_replies": {
         "reply": {
-          "one": "SHOW $n REPLY",
-          "other": "SHOW $n REPLIES"
+            "one": "SHOW $n REPLY",
+            "other": "SHOW $n REPLIES"
         }
-      }
-  }
+    }
+}

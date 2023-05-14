@@ -339,6 +339,11 @@ class _HomePageState extends BasePageState<HomePage>
         action: appModel.openCreatorEnhancementsEditor,
       ),
       buildPopupItem(
+        label: t.options_export,
+        icon: Icons.accessible_forward,
+        action: appModel.openCreatorExportProfileSettings,
+      ),
+      buildPopupItem(
         label: t.options_language,
         icon: Icons.translate,
         action: appModel.showLanguageMenu,
