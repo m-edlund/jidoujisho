@@ -104,7 +104,6 @@ class PlayerNetworkStreamSource extends PlayerMediaSource {
           MediaItem item = getMediaItemFromUrl(videoUrl: videoUrl);
 
           appModel.openMedia(
-            context: context,
             ref: ref,
             mediaSource: this,
             item: item,

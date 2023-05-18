@@ -71,7 +71,7 @@ class _ReaderChatgptPageState extends BaseSourcePageState<ReaderChatgptPage> {
         baseOption: HttpSetup(
           receiveTimeout: const Duration(seconds: 5),
         ),
-        isLog: true,
+        enableLog: true,
       );
 
       return Column(
@@ -236,7 +236,7 @@ class _ReaderChatgptPageState extends BaseSourcePageState<ReaderChatgptPage> {
 
     final chatComplete = _openAI.onChatCompletionSSE(
       request: ChatCompleteText(
-        model: ChatModel.chatGptTurbo0301Model,
+        model: ChatModel.gptTurbo0301,
         messages: await getMessages(),
         maxToken: 1500,
       ),
@@ -489,7 +489,7 @@ class _ReaderChatgptPageState extends BaseSourcePageState<ReaderChatgptPage> {
     required bool isBot,
     required bool isLoading,
   }) {
-    text = RemoveEmoji().removemoji(text);
+    text = RemoveEmoji().clean(text);
     final JidoujishoSelectableTextController controller =
         JidoujishoSelectableTextController();
 
@@ -501,6 +501,7 @@ class _ReaderChatgptPageState extends BaseSourcePageState<ReaderChatgptPage> {
       ),
       child: Card(
         color: isBot ? null : Colors.red.withOpacity(0.5),
+        shape: const RoundedRectangleBorder(),
         child: Padding(
           padding: Spacing.of(context).insets.all.normal,
           child: isLoading && text.isEmpty
@@ -573,7 +574,6 @@ class _ReaderChatgptPageState extends BaseSourcePageState<ReaderChatgptPage> {
                   ],
                 ),
         ),
-        shape: const RoundedRectangleBorder(),
       ),
     );
   }

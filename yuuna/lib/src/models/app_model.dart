@@ -1647,7 +1647,7 @@ class AppModel with ChangeNotifier {
     }
 
     searchTerm = searchTerm.replaceAll('\n', ' ');
-    searchTerm = _removeEmoji.removemoji(searchTerm, ' ', false);
+    searchTerm = _removeEmoji.clean(searchTerm, ' ', false);
 
     /// Strip lone surrogates that may crash the search.
     RegExp loneSurrogate = RegExp(
@@ -1817,11 +1817,12 @@ class AppModel with ChangeNotifier {
           TextButton(
             child: Text(t.dialog_launch_ankidroid),
             onPressed: () async {
+              final navigator = Navigator.of(context);
               await LaunchApp.openApp(
                 androidPackageName: 'com.ichi2.anki',
                 openStore: true,
               );
-              Navigator.pop(context);
+              navigator.pop();
             },
           ),
           TextButton(
@@ -2253,28 +2254,32 @@ class AppModel with ChangeNotifier {
     required BuildContext context,
     required AnkiMapping mapping,
   }) async {
+    final navigator = Navigator.of(context);
+
     /// Ensure that the following case never happens to the default profile.
     await addDefaultModelIfMissing();
 
     bool newMappingModelExists = await profileModelExists(mapping);
 
     if (!newMappingModelExists) {
-      await showDialog(
-        barrierDismissible: true,
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text(t.error_model_missing),
-          content: Text(
-            t.error_model_missing_content,
-          ),
-          actions: [
-            TextButton(
-              child: Text(t.dialog_close),
-              onPressed: () => Navigator.pop(context),
+      if (context.mounted) {
+        await showDialog(
+          barrierDismissible: true,
+          context: context,
+          builder: (_) => AlertDialog(
+            title: Text(t.error_model_missing),
+            content: Text(
+              t.error_model_missing_content,
             ),
-          ],
-        ),
-      );
+            actions: [
+              TextButton(
+                onPressed: navigator.pop,
+                child: Text(t.dialog_close),
+              ),
+            ],
+          ),
+        );
+      }
 
       await selectStandardProfile();
       deleteMapping(mapping);
@@ -2285,22 +2290,24 @@ class AppModel with ChangeNotifier {
         await profileFieldMatchesCardTypeCount(mapping);
 
     if (!newMappingModelLengthMatches) {
-      await showDialog(
-        barrierDismissible: true,
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text(t.error_model_changed),
-          content: Text(
-            t.error_model_changed_content,
-          ),
-          actions: [
-            TextButton(
-              child: Text(t.dialog_close),
-              onPressed: () => Navigator.pop(context),
+      if (context.mounted) {
+        await showDialog(
+          barrierDismissible: true,
+          context: context,
+          builder: (_) => AlertDialog(
+            title: Text(t.error_model_changed),
+            content: Text(
+              t.error_model_changed_content,
             ),
-          ],
-        ),
-      );
+            actions: [
+              TextButton(
+                onPressed: navigator.pop,
+                child: Text(t.dialog_close),
+              ),
+            ],
+          ),
+        );
+      }
 
       await resetProfileFields(mapping);
     }
@@ -2359,7 +2366,6 @@ class AppModel with ChangeNotifier {
 
   /// A helper function for launching a media source.
   Future<void> openMedia({
-    required BuildContext context,
     required WidgetRef ref,
     required MediaSource mediaSource,
     bool killOnPop = false,
@@ -2409,7 +2415,6 @@ class AppModel with ChangeNotifier {
 
   /// Ends a media session and ensures that values are reset.
   Future<void> closeMedia({
-    required BuildContext context,
     required WidgetRef ref,
     required MediaSource mediaSource,
     MediaItem? item,
@@ -2426,10 +2431,8 @@ class AppModel with ChangeNotifier {
     isProcessingEmbeddedSubtitles = false;
     await Wakelock.disable();
     await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-
     await mediaSource.onSourceExit(
       appModel: this,
-      context: context,
       ref: ref,
     );
 

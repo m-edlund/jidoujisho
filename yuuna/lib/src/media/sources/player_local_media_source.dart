@@ -94,12 +94,12 @@ class PlayerLocalMediaSource extends PlayerMediaSource {
   Future<void> generateThumbnail(String inputPath, String targetPath) async {
     String timestamp =
         JidoujishoTimeFormat.getFfmpegTimestamp(const Duration(seconds: 30));
-    final FlutterFFmpeg _flutterFFmpeg = FlutterFFmpeg();
+    final FlutterFFmpeg flutterFFmpeg = FlutterFFmpeg();
 
     String command =
         '-ss $timestamp -y -i "$inputPath" -frames:v 1 -q:v 2 "$targetPath"';
 
-    await _flutterFFmpeg.execute(command);
+    await flutterFFmpeg.execute(command);
     String output = await FlutterFFmpegConfig().getLastCommandOutput();
 
     if (output.contains('Output file is empty, nothing was encoded')) {
@@ -108,7 +108,7 @@ class PlayerLocalMediaSource extends PlayerMediaSource {
 
       String command =
           '-ss $timestamp -y -i "$inputPath" -frames:v 1 -q:v 2 "$targetPath"';
-      await _flutterFFmpeg.execute(command);
+      await flutterFFmpeg.execute(command);
     }
   }
 
@@ -135,20 +135,22 @@ class PlayerLocalMediaSource extends PlayerMediaSource {
         .getMediaSourceHistory(mediaSource: this)
         .map((item) => item.mediaIdentifier)
         .toList();
-
-    Iterable<String>? filePaths = await FilesystemPicker.open(
-      allowedExtensions: allowedExtensions,
-      context: context,
-      rootDirectories: rootDirectories,
-      fsType: FilesystemType.file,
-      title: '',
-      pickText: t.dialog_select,
-      cancelText: t.dialog_cancel,
-      themeData: Theme.of(context),
-      folderIconColor: Theme.of(context).colorScheme.primary,
-      usedFiles: usedFiles,
-      currentActiveFile: appModel.currentMediaItem?.mediaIdentifier,
-    );
+    Iterable<String>? filePaths;
+    if (context.mounted) {
+      filePaths = await FilesystemPicker.open(
+        allowedExtensions: allowedExtensions,
+        context: context,
+        rootDirectories: rootDirectories,
+        fsType: FilesystemType.file,
+        title: '',
+        pickText: t.dialog_select,
+        cancelText: t.dialog_cancel,
+        themeData: Theme.of(context),
+        folderIconColor: Theme.of(context).colorScheme.primary,
+        usedFiles: usedFiles,
+        currentActiveFile: appModel.currentMediaItem?.mediaIdentifier,
+      );
+    }
 
     if (filePaths == null || filePaths.isEmpty) {
       return;
@@ -194,7 +196,6 @@ class PlayerLocalMediaSource extends PlayerMediaSource {
 
     await appModel.openMedia(
       pushReplacement: pushReplacement,
-      context: context,
       ref: ref,
       mediaSource: this,
       item: item,

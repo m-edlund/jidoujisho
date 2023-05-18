@@ -80,7 +80,7 @@ class _DictionaryDialogPageState extends BasePageState {
   }
 
   Widget buildAutoSearchSwitch() {
-    ValueNotifier<bool> _notifier =
+    ValueNotifier<bool> notifier =
         ValueNotifier<bool>(appModel.autoSearchEnabled);
 
     return Row(
@@ -89,13 +89,13 @@ class _DictionaryDialogPageState extends BasePageState {
           child: Text(t.auto_search),
         ),
         ValueListenableBuilder<bool>(
-          valueListenable: _notifier,
+          valueListenable: notifier,
           builder: (_, value, __) {
             return Switch(
               value: value,
               onChanged: (value) {
                 appModel.toggleAutoSearchEnabled();
-                _notifier.value = appModel.autoSearchEnabled;
+                notifier.value = appModel.autoSearchEnabled;
               },
             );
           },
