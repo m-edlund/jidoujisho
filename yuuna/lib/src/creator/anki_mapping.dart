@@ -3,6 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:yuuna/creator.dart';
 import 'package:yuuna/language.dart';
 import 'package:yuuna/models.dart';
+import 'package:yuuna/src/creator/enhancements/combined_audio_enhancement.dart';
 import 'package:yuuna/utils.dart';
 
 part 'anki_mapping.g.dart';
@@ -108,6 +109,7 @@ class AnkiMapping {
         2: ForvoAudioEnhancement.key,
         3: PickAudioEnhancement.key,
         4: AudioRecorderEnhancement.key,
+        5: CombinedAudioEnhancement.key,
       },
       AudioSentenceField.key: {
         0: ClearFieldEnhancement.key,
