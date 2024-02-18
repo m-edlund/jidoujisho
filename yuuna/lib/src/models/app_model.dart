@@ -38,6 +38,7 @@ import 'package:yuuna/language.dart';
 import 'package:yuuna/media.dart';
 import 'package:yuuna/models.dart';
 import 'package:yuuna/pages.dart';
+import 'package:yuuna/src/creator/enhancements/combined_audio_enhancement.dart';
 import 'package:yuuna/utils.dart';
 
 /// Schemas used in Isar database.
@@ -845,6 +846,7 @@ class AppModel with ChangeNotifier {
         ForvoAudioEnhancement(),
         PickAudioEnhancement(field: AudioField.instance),
         AudioRecorderEnhancement(field: AudioField.instance),
+        CombinedAudioEnhancement(),
       ],
       AudioSentenceField.instance: [
         ClearFieldEnhancement(field: AudioSentenceField.instance),
